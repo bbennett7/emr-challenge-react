@@ -39,8 +39,36 @@ const updateMasterListPlan = async (body, id) => {
   }
 };
 
+const deleteMasterListPlan = async id => {
+  try {
+    return axios.delete(`${process.env.REACT_APP_API_URL}/plans/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      }
+    });
+  } catch (err) {
+    return err;
+  }
+};
+
+const updatePlanMapper = async body => {
+  try {
+    return axios.put(`${process.env.REACT_APP_API_URL}/plan-mappers`, body, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      }
+    });
+  } catch (err) {
+    return err;
+  }
+};
+
 export default {
   getPendingPlans,
   getMasterListPlans,
-  updateMasterListPlan
+  updateMasterListPlan,
+  deleteMasterListPlan,
+  updatePlanMapper
 };
