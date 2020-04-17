@@ -1,14 +1,36 @@
 import React, { useState } from 'react';
 import styles from './ReassignItem.module.scss';
+import Button from '../Button/Button';
+import API from '../../api/index';
 
-const ReassignItem = ({ masterListItems }) => {
+const ReassignItem = ({ masterListItems, activeItem, removeApprovedItem }) => {
   const [selectedMasterItem, setSelectedMasterItem] = useState(masterListItems[0]);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleOnClick = event => {
     const { id } = event.currentTarget;
     const selectedItem = masterListItems.find(item => item.plan.id == id);
 
     setSelectedMasterItem(selectedItem);
+  };
+
+  const handleOnSubmit = async event => {
+    event.preventDefault();
+    setErrorMessage('');
+
+    try {
+      const body = {
+        selected_plan_id: activeItem.plan.id,
+        plan_id: selectedMasterItem.plan.id,
+        provider_id: selectedMasterItem.provider.id
+      };
+
+      await API.updatePlanMapper(body);
+      await API.deleteMasterListPlan(activeItem.plan.id);
+      removeApprovedItem(activeItem.plan.id);
+    } catch (err) {
+      return setErrorMessage(err.message);
+    }
   };
 
   const renderMasterListItems = () => {
@@ -37,6 +59,10 @@ const ReassignItem = ({ masterListItems }) => {
         the master list.
       </div>
       <div className={styles.scrollContainer}>{renderMasterListItems()}</div>
+      <div onClick={handleOnSubmit}>
+        <Button />
+      </div>
+      {!errorMessage ? null : <div className={styles.error}>{errorMessage}</div>}
     </div>
   );
 };
