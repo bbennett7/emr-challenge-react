@@ -41,14 +41,15 @@ const UpdateItem = ({ activeItem, removeApprovedItem }) => {
 
   const handleOnSubmit = async event => {
     event.preventDefault();
+    setErrorMessage('');
+
     const body = {
       plan_name: nameInput,
       plan_type: typeInput
     };
 
     try {
-      const d = await API.updateMasterListPlan(body, plan.id);
-      console.log(d);
+      await API.updateMasterListPlan(body, plan.id);
       removeApprovedItem(plan.id);
     } catch (err) {
       return setErrorMessage(err.message);
