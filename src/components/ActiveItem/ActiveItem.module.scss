@@ -23,15 +23,18 @@
   flex-direction: row;
   font-family: 'Lora';
   margin: 5px 0px;
-  font-size: 22px;
+  font-size: 15px;
+  align-items: baseline;
 }
 
 .label {
+  font-family: 'Baloo Bhaina 2';
   color: $rtBlue;
   margin-right: 10px;
   width: 35%;
   min-width: 50px;
   font-weight: 700;
+  font-size: 18px;
 }
 
 .icon {
