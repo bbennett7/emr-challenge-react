@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/global.scss';
 import DefaultLayout from './containers/DefaultLayout/DefaultLayout';
 
 const App = () => {

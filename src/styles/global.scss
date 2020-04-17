@@ -1,10 +1,10 @@
 @import './variables';
 
 // Balloo Chaina 2
-@import url('href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600&display=swap');
 
 // Lora
-@import url('href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap');
 
 html {
   margin: 0;
@@ -18,10 +18,11 @@ html {
 }
 
 body {
-  min-height: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: null;
+  background-color: $rtLightGrey;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
