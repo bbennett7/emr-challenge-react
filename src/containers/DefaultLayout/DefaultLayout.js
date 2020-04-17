@@ -7,8 +7,10 @@ import { ReactComponent as ClinicIcon } from '../../assets/clinic-icon.svg';
 const DefaultLayout = () => {
   return (
     <div className={styles.container}>
-      <ClinicIcon className={styles.clinicIcon} />
-      <div className={styles.header}>EMR Management System</div>
+      <div className={styles.header}>
+        <ClinicIcon className={styles.clinicIcon} />
+        EMR Management System
+      </div>
       <BrowserRouter>
         <Switch>
           {RouteConfig.map(route => {
