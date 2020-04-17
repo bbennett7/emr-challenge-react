@@ -1,0 +1,52 @@
+@import '../../styles/variables';
+
+.container {
+  max-width: 450px;
+  padding: 0px 20px;
+}
+
+.header {
+  font-family: 'Baloo Bhaina 2';
+  color: $rtBlue;
+  font-size: 30px;
+}
+
+.description {
+  font-family: 'Lora';
+  color: $rtBlack;
+  font-size: 13px;
+  font-style: italic;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
+  width: 400px;
+}
+
+.form label {
+  font-family: 'Lora';
+  color: $rtBlack;
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.form input {
+  height: 20px;
+  margin: 5px 0px;
+  width: 200px;
+  padding-left: 5px;
+}
+
+.error {
+  color: $rtRed;
+  font-size: 13px;
+  font-family: 'Lora';
+  margin: 0px auto;
+}

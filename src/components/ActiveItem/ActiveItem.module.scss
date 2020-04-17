@@ -1,0 +1,45 @@
+@import '../../styles/variables';
+
+.container {
+  min-width: 400px;
+  width: auto;
+  flex-grow: 1;
+}
+
+.header {
+  font-family: 'Baloo Bhaina 2';
+  color: $rtBlue;
+  font-size: 30px;
+}
+
+.dataWrapper {
+  box-shadow: 2px 2px 5px $rtShadowGrey;
+  background-color: $rtWhite;
+  padding: 10px 20px;
+  flex-grow: 1;
+}
+
+.wrapper {
+  flex-direction: row;
+  font-family: 'Lora';
+  margin: 5px 0px;
+  font-size: 15px;
+  align-items: baseline;
+}
+
+.label {
+  font-family: 'Baloo Bhaina 2';
+  color: $rtBlue;
+  margin-right: 10px;
+  width: 35%;
+  min-width: 50px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.icon {
+  fill: $rtBlue;
+  height: 30px;
+  margin: 5px 20px;
+  cursor: pointer;
+}
