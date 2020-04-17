@@ -1,0 +1,87 @@
+@import '../../styles/variables';
+
+.container {
+  max-width: 450px;
+  padding: 0px 20px;
+}
+
+.header {
+  font-family: 'Baloo Bhaina 2';
+  color: $rtBlue;
+  font-size: 30px;
+}
+
+.description {
+  font-family: 'Lora';
+  color: $rtBlack;
+  font-size: 13px;
+  font-style: italic;
+  text-align: center;
+}
+
+.scrollContainer {
+  max-height: 250px;
+  width: 85%;
+  overflow: scroll;
+  background-color: $rtWhite;
+  border: 1px solid $rtBlue;
+  border-radius: 10px;
+  margin: 30px auto 0px;
+}
+
+.item, .activeItem {
+  flex-direction: row;
+  align-items: baseline;
+  margin: 5px 0px;
+  cursor: pointer;
+}
+
+.item .providerName {
+  color: $rtBlue;
+  font-family: 'Baloo Bhaina 2';
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.item .planName {
+  color: $rtBlack;
+  font-family: 'Baloo Bhaina 2';
+  font-size: 14px;
+  margin: 0px 10px;
+  font-weight: 500;
+}
+
+.item .planType {
+  color: $rtBlack;
+  font-family: 'Lora';
+  font-size: 12px;
+  font-style: italic; 
+}
+
+.activeItem {
+  background-color: $rtBlue;
+}
+
+.activeItem .providerName {
+  color: $rtWhite;
+  font-family: 'Baloo Bhaina 2';
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.activeItem .planName {
+  color: $rtMediumGrey;
+  font-family: 'Baloo Bhaina 2';
+  font-size: 14px;
+  margin: 0px 10px;
+  font-weight: 500;
+}
+
+.activeItem .planType {
+  color: $rtWhite;
+  font-family: 'Lora';
+  font-size: 12px;
+  font-style: italic; 
+}
