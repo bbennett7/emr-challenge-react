@@ -1,0 +1,15 @@
+@import '../../styles/variables';
+
+.header {
+  font-family: 'Baloo Bhaina 2';
+  color: $rtBlue;
+  font-size: 35px;
+}
+
+.item {
+  font-family: Lora;
+  color: $rtBlack;
+  font-size: 18px;
+  margin: 7px 0px;
+  cursor: pointer;
+}
