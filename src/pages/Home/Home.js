@@ -66,7 +66,11 @@ const Home = () => {
         {editOption === 'update' ? (
           <UpdateItem activeItem={activePlan} removeApprovedItem={removeApprovedItem} />
         ) : (
-          <ReassignItem masterListItems={masterListPlans} />
+          <ReassignItem
+            activeItem={activePlan}
+            masterListItems={masterListPlans}
+            removeApprovedItem={removeApprovedItem}
+          />
         )}
       </div>
     </div>
