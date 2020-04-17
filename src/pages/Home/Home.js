@@ -4,6 +4,8 @@ import API from '../../api/index';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import PendingList from '../../components/PendingList/PendingList';
 import ActiveItem from '../../components/ActiveItem/ActiveItem';
+import UpdateItem from '../../components/UpdateItem/UpdateItem';
+import ReassignItem from '../../components/ReassignItem/ReassignItem';
 
 const Home = () => {
   const [loading, setLoadingState] = useState(true);
@@ -30,6 +32,15 @@ const Home = () => {
     }
   });
 
+  const removeApprovedItem = id => {
+    const updatedPendingPlans = pendingPlans;
+    const i = updatedPendingPlans.findIndex(plan => plan.plan.id === id);
+    updatedPendingPlans.splice(i, 1);
+
+    setPendingPlans(updatedPendingPlans);
+    setActivePlan(updatedPendingPlans[0]);
+  };
+
   if (loading) {
     return (
       <div className={styles.container}>
@@ -52,7 +63,11 @@ const Home = () => {
           activeId={activePlan.plan.id}
         />
         <ActiveItem item={activePlan} setEditOption={setEditOption} />
-        {editOption === 'update' ? 'Update' : 'Reassign'}
+        {editOption === 'update' ? (
+          <UpdateItem activeItem={activePlan} removeApprovedItem={removeApprovedItem} />
+        ) : (
+          <ReassignItem masterListItems={masterListPlans} />
+        )}
       </div>
     </div>
   );
