@@ -11,6 +11,7 @@ const Home = () => {
   useEffect(() => {
     if (loading) {
       getPendingPlans();
+      getMasterListPlans();
 
       setLoadingState(false);
     }
@@ -20,6 +21,11 @@ const Home = () => {
     const data = await API.getPendingPlans();
     setPendingPlans(data.data.pendingPlans);
   };
+
+  const getMasterListPlans = async () => {
+    const data = await API.getMasterListPlans();
+    setMasterListPlans(data.data.plans);
+  }
 
   if (loading) {
     return (
