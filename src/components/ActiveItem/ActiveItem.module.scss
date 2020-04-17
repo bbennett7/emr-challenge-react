@@ -1,0 +1,30 @@
+@import '../../styles/variables';
+
+.container {
+  min-width: 400px;
+  width: auto;
+  flex-grow: 1;
+}
+
+.dataWrapper {
+  box-shadow: 2px 2px 5px $rtShadowGrey;
+  background-color: $rtWhite;
+  padding: 10px 20px;
+  flex-grow: 1;
+  z-index: -1;
+}
+
+.wrapper {
+  flex-direction: row;
+  font-family: 'Lora';
+  margin: 5px 0px;
+  font-size: 22px;
+}
+
+.label {
+  color: $rtBlue;
+  margin-right: 10px;
+  width: 35%;
+  min-width: 50px;
+  font-weight: 700;
+}
