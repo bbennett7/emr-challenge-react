@@ -23,6 +23,7 @@ const ActiveItem = ({ item, setEditOption }) => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.header}>Make Changes</div>
       <div className={styles.dataWrapper}>
         <div className={styles.wrapper}>
           <div className={styles.label}>Plan Name</div>

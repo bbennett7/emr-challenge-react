@@ -6,6 +6,12 @@
   flex-grow: 1;
 }
 
+.header {
+  font-family: 'Baloo Bhaina 2';
+  color: $rtBlue;
+  font-size: 30px;
+}
+
 .dataWrapper {
   box-shadow: 2px 2px 5px $rtShadowGrey;
   background-color: $rtWhite;
@@ -26,10 +32,6 @@
   width: 35%;
   min-width: 50px;
   font-weight: 700;
-}
-
-.iconWrapper {
-
 }
 
 .icon {
