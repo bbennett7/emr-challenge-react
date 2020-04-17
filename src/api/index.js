@@ -24,7 +24,7 @@ const getMasterListPlans = async () => {
   } catch (err) {
     return err;
   }
-}
+};
 
 export default {
   getPendingPlans,
