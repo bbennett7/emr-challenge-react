@@ -5,14 +5,14 @@ import API from '../../api/index';
 
 const UpdateItem = ({ activeItem, removeApprovedItem }) => {
   const { plan } = activeItem;
-  const [loadingStatus, setLoadingStatus] = useState(true);
+  const [loading, setLoadingStatus] = useState(true);
   const [nameInput, setNameInput] = useState(plan.plan_name);
   const [typeInput, setTypeInput] = useState(plan.plan_type);
   const [originalName, setOriginalName] = useState(plan.plan_name);
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    if (!loadingStatus && originalName !== plan.plan_name) {
+    if (!loading && originalName !== plan.plan_name) {
       setOriginalName(plan.plan_name);
     }
 
@@ -21,8 +21,10 @@ const UpdateItem = ({ activeItem, removeApprovedItem }) => {
       !plan.plan_type ? setTypeInput('') : setTypeInput(plan.plan_type);
     }
 
-    setLoadingStatus(false);
-  });
+    if (loading) {
+      setLoadingStatus(false);
+    }
+  }, [loading, originalName, plan.plan_name, plan.plan_type]);
 
   const handleOnChange = event => {
     event.preventDefault();
