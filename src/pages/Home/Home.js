@@ -30,7 +30,7 @@ const Home = () => {
     if (loading) {
       fetchData();
     }
-  });
+  }, [loading]);
 
   const removeApprovedItem = id => {
     const updatedPendingPlans = pendingPlans;
