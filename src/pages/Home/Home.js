@@ -3,12 +3,13 @@ import styles from './Home.module.scss';
 import API from '../../api/index';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import PendingList from '../../components/PendingList/PendingList';
+import ActiveItem from '../../components/ActiveItem/ActiveItem';
 
 const Home = () => {
   const [loading, setLoadingState] = useState(true);
   const [pendingPlans, setPendingPlans] = useState([]);
   const [masterListPlans, setMasterListPlans] = useState([]);
-  const [activePlanId, setActivePlanId] = useState({});
+  const [activePlan, setActivePlan] = useState({});
 
   useEffect(() => {
     if (loading) {
@@ -20,7 +21,7 @@ const Home = () => {
     const pendingPlanData = await API.getPendingPlans();
     const { pendingPlans } = pendingPlanData.data;
     setPendingPlans(pendingPlans);
-    setActivePlanId(pendingPlans[0].plan.id);
+    setActivePlan(pendingPlans[0]);
 
     const masterPlanData = await API.getMasterListPlans();
     setMasterListPlans(masterPlanData.data.plans);
@@ -42,7 +43,15 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
-      <PendingList items={pendingPlans} setActiveItem={setActivePlanId} />
+      <div className={styles.wrapper}>
+        <PendingList
+          items={pendingPlans}
+          setActiveItem={setActivePlan}
+          itemsType={'plan'}
+          activeId={activePlan.plan.id}
+        />
+        <ActiveItem item={activePlan} />
+      </div>
     </div>
   );
 };
