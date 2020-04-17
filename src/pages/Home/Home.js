@@ -10,24 +10,25 @@ const Home = () => {
   const [pendingPlans, setPendingPlans] = useState([]);
   const [masterListPlans, setMasterListPlans] = useState([]);
   const [activePlan, setActivePlan] = useState({});
-
-  useEffect(() => {
-    if (loading) {
-      fetchData();
-    }
-  });
+  const [editOption, setEditOption] = useState('update');
 
   const fetchData = async () => {
     const pendingPlanData = await API.getPendingPlans();
-    const { pendingPlans } = pendingPlanData.data;
-    setPendingPlans(pendingPlans);
-    setActivePlan(pendingPlans[0]);
+    const { data } = pendingPlanData;
+    setPendingPlans(data.pendingPlans);
+    setActivePlan(data.pendingPlans[0]);
 
     const masterPlanData = await API.getMasterListPlans();
     setMasterListPlans(masterPlanData.data.plans);
 
     setLoadingState(false);
   };
+
+  useEffect(() => {
+    if (loading) {
+      fetchData();
+    }
+  });
 
   if (loading) {
     return (
@@ -50,7 +51,8 @@ const Home = () => {
           itemsType={'plan'}
           activeId={activePlan.plan.id}
         />
-        <ActiveItem item={activePlan} />
+        <ActiveItem item={activePlan} setEditOption={setEditOption} />
+        {editOption === 'update' ? 'Update' : 'Reassign'}
       </div>
     </div>
   );
